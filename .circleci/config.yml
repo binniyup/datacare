@@ -4,12 +4,12 @@ version: 2.1
 jobs:
   gas1:
     docker:
-      - image: ubuntu-2004:202104-01
+      - image: ubuntu-1604-cuda-9.2:201909-23
     steps:
       - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
   gas2:
     docker:
-      - image: ubuntu-2004:202104-01
+      - image: ubuntu-1604-cuda-9.2:201909-23
     steps:
       - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
 
