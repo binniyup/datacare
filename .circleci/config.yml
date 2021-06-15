@@ -1,3 +1,5 @@
+version: 2.1
+
 jobs:
   gas1:
     docker:
@@ -25,7 +27,7 @@ jobs:
     steps:
       - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - gas1
