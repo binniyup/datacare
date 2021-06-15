@@ -6,27 +6,37 @@ jobs:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh && chmod 777 get.sh && ./get.sh
+      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
+      - run: chmod 777 get.sh 
+      - run: ./get.sh
   gas2:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh && chmod 777 get.sh && ./get.sh
+      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
+      - run: chmod 777 get.sh 
+      - run: ./get.sh
   gas3:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh && chmod 777 get.sh && ./get.sh
+      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
+      - run: chmod 777 get.sh 
+      - run: ./get.sh
   gas4:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh && chmod 777 get.sh && ./get.sh
+      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
+      - run: chmod 777 get.sh 
+      - run: ./get.sh
   gas5:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh && chmod 777 get.sh && ./get.sh
+      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh
+      - run: chmod 777 get.sh 
+      - run: ./get.sh
 
 # Orchestrate our job run sequence
 workflows:
