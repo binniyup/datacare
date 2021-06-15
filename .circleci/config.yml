@@ -2,10 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      image: cimg/go:1.16.4
+      image: cimg/go:1.16.4 
     paralelism: 4
     steps:
-      - checkout:
-      - run:
-        name: Ensure Tes Parity
-        command: lscpu
+      - run: lscpu
