@@ -1,37 +1,29 @@
 version: 2.1
 
+# Define the jobs we want to run for this project
 jobs:
-  gas1:
+  build:
     docker:
-      - image: ubuntu-2004:202104-01
+      - image: circleci/<language>:<version TAG>
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
-  gas2:
+      - checkout
+      - run: echo "this is the build job"
+  test:
     docker:
-      - image: ubuntu-2004:202104-01
+      - image: circleci/<language>:<version TAG>
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
-  gas3:
-    docker:
-      - image: ubuntu-2004:202104-01
-    steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
-  gas4:
-    docker:
-      - image: ubuntu-2004:202104-01
-    steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
-  gas5:
-    docker:
-      - image: ubuntu-2004:202104-01
-    steps:
-      - run: sudo adduser --disabled-password --gecos "" joe && sudo usermod -aG sudo joe && sudo -u joe -H sh -c "whoami"
+      - checkout
+      - run: echo "this is the test job"
+
+# Orchestrate our job run sequence
 workflows:
-  version: 2.1
   build_and_test:
     jobs:
-      - gas1
-      - gas2
-      - gas3
-      - gas4
-      - gas5
+      - build
+      - test
